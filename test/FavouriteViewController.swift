@@ -11,7 +11,7 @@ class FavouriteViewController: UIViewController {
     override func viewDidLoad() {
            super.viewDidLoad()
            
-           view.backgroundColor = .red
+           view.backgroundColor = .white
            
            let label = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 30))
            label.center = view.center
