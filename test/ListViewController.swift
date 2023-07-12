@@ -12,10 +12,23 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     let cellId = "cellId"
     let data = ["News1", "News2", "News3"]
     
+    let api = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=a8c230c21d4f4cb49591379d27244469"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        APICaller.shared.getTopStories { result in
+            switch result {
+            case .success(let response):
+                break
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
         tableView.delegate = self
         tableView.dataSource = self
+        
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         
         view.addSubview(tableView)
@@ -25,7 +38,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         
-        
+       
         
     }
     
@@ -45,4 +58,6 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         detailVC.newsTitle = data[indexPath.row]
         navigationController?.pushViewController(detailVC, animated: true)
     }
+    
+    
 }

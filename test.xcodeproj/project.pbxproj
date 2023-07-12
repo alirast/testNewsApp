@@ -15,6 +15,7 @@
 		4F3A4EFD2A5EAAD20047AADC /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3A4EFC2A5EAAD20047AADC /* MainTabBarController.swift */; };
 		4F3A4EFF2A5EAFA10047AADC /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3A4EFE2A5EAFA10047AADC /* ListViewController.swift */; };
 		4F3A4F012A5EAFB50047AADC /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3A4F002A5EAFB50047AADC /* FavouriteViewController.swift */; };
+		4F3A4F072A5ED5B60047AADC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3A4F062A5ED5B60047AADC /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		4F3A4EFC2A5EAAD20047AADC /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		4F3A4EFE2A5EAFA10047AADC /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		4F3A4F002A5EAFB50047AADC /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
+		4F3A4F062A5ED5B60047AADC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				4F3A4EFC2A5EAAD20047AADC /* MainTabBarController.swift */,
 				4F3A4EFE2A5EAFA10047AADC /* ListViewController.swift */,
 				4F3A4F002A5EAFB50047AADC /* FavouriteViewController.swift */,
+				4F3A4F062A5ED5B60047AADC /* NetworkManager.swift */,
 			);
 			path = test;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 				4F3A4EED2A5EA7600047AADC /* DetailViewController.swift in Sources */,
 				4F3A4EE92A5EA7600047AADC /* AppDelegate.swift in Sources */,
 				4F3A4EFD2A5EAAD20047AADC /* MainTabBarController.swift in Sources */,
+				4F3A4F072A5ED5B60047AADC /* NetworkManager.swift in Sources */,
 				4F3A4EFF2A5EAFA10047AADC /* ListViewController.swift in Sources */,
 				4F3A4F012A5EAFB50047AADC /* FavouriteViewController.swift in Sources */,
 				4F3A4EEB2A5EA7600047AADC /* SceneDelegate.swift in Sources */,
