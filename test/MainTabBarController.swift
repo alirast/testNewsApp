@@ -13,9 +13,10 @@ class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = "News"
         listViewController.tabBarItem = UITabBarItem(title: "All", image: UIImage(systemName: "list.bullet"), selectedImage: nil)
-        favouriteViewController.tabBarItem = UITabBarItem(title: "Favourtie", image: UIImage(systemName: "star"), selectedImage: nil)
+        favouriteViewController.tabBarItem = UITabBarItem(title: "Favourite", image: UIImage(systemName: "star"), selectedImage: nil)
+       
         
         viewControllers = [listViewController, favouriteViewController]
     }

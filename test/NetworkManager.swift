@@ -13,6 +13,7 @@ struct APIResponse: Codable {
 
 struct Article: Codable {
     let source: Source
+    let author: String?
     let title: String
     let description: String?
     let url: String?
@@ -34,7 +35,7 @@ final class APICaller {
     }
     private init() {}
     
-    public func getTopStories(completion: @escaping (Result<[String], Error>) -> Void) {
+    public func getTopStories(completion: @escaping (Result<[Article], Error>) -> Void) {
         guard let url = Constants.topHeadlinesURL else {
             return
         }
@@ -46,6 +47,8 @@ final class APICaller {
                 do {
                     let result = try JSONDecoder().decode(APIResponse.self, from: data)
                     print("Articles \(result.articles.count)")
+                    
+                    completion(.success(result.articles))
                     /*for article in result.articles {
                         print(article.title)
                     }*/
