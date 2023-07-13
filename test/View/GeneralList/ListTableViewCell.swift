@@ -89,7 +89,7 @@ class ListTableViewCell: UITableViewCell {
         imageViewList.image = nil
     }
     
-    func configure(with viewModel: ListTableViewCellViewModel) {
+    func configure(with viewModel: ListTableViewCellModel) {
         listAuthorLabel.text = viewModel.author
         listTitleLabel.text = viewModel.title
         dateLabel.text = viewModel.date

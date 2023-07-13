@@ -9,7 +9,7 @@ import UIKit
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    private var viewModels = [ListTableViewCellViewModel]()
+    private var viewModels = [ListTableViewCellModel]()
     private var articles = [Article]()
     
     private let tableView: UITableView = {
@@ -30,7 +30,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
             switch result {
             case .success(let articles):
                 self?.articles = articles
-                self?.viewModels = articles.compactMap({ ListTableViewCellViewModel(author: $0.author ?? "here should be author", title: $0.title, date: $0.publishedAt, imageURL: URL(string: $0.urlToImage ?? "")) })
+                self?.viewModels = articles.compactMap({ ListTableViewCellModel(author: $0.author ?? "here should be author", title: $0.title, date: $0.publishedAt, imageURL: URL(string: $0.urlToImage ?? "")) })
                 
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()

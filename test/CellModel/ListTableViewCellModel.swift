@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ListTableViewCellViewModel {
+class ListTableViewCellModel {
     let author: String
     let title: String
     let date: String
