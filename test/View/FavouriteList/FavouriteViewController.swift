@@ -21,7 +21,12 @@ class FavouriteViewController: UIViewController, UITableViewDelegate, UITableVie
         favouriteTableView.register(UITableViewCell.self, forCellReuseIdentifier: "favCell")
         favouriteTableView.delegate = self
         favouriteTableView.dataSource = self
-       }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        favouriteTableView.reloadData()
+    }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

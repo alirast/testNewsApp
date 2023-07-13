@@ -30,6 +30,13 @@ class FavouriteListManager: FavouriteListManagerProtocol {
         saveFavouriteNews()
     }
     
+    func removeNews(_ news: String) {
+        if let index = favouritedNewsArray.firstIndex(of: news) {
+            favouritedNewsArray.remove(at: index)
+            saveFavouriteNews()
+        }
+    }
+    
     private func saveFavouriteNews() {
         defaults.set(favouritedNewsArray, forKey: favouritedNewsKey)
     }
