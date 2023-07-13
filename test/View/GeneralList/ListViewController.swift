@@ -9,8 +9,8 @@ import UIKit
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    private var viewModels = [ListTableViewCellModel]()
-    private var articles = [Article]()
+    private var cellModels = [ListTableViewCellModel]()
+    var articles = [Article]()
     
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -30,7 +30,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
             switch result {
             case .success(let articles):
                 self?.articles = articles
-                self?.viewModels = articles.compactMap({ ListTableViewCellModel(author: $0.author ?? "here should be author", title: $0.title, date: $0.publishedAt, imageURL: URL(string: $0.urlToImage ?? "")) })
+                self?.cellModels = articles.compactMap({ ListTableViewCellModel(author: $0.author ?? "here should be author", title: $0.title, date: $0.publishedAt, imageURL: URL(string: $0.urlToImage ?? "")) })
                 
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
@@ -48,12 +48,12 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModels.count
+        return cellModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ListTableViewCell.identifier, for: indexPath) as? ListTableViewCell else { fatalError() }
-        cell.configure(with: viewModels[indexPath.row])
+        cell.configure(with: cellModels[indexPath.row])
         return cell
     }
     
@@ -72,6 +72,12 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
                         detailVC.detailNewsImageView.image = image
                     }
                 }
+            }
+        }
+        
+        if let description = article.description {
+            if FavouriteListManager.shared.favouritedNewsArray.contains(description) {
+                print("LIST VIEW CONTROLLER CONTAINS")
             }
         }
 

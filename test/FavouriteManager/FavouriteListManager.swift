@@ -14,7 +14,8 @@ protocol FavouriteListManagerProtocol {
 class FavouriteListManager: FavouriteListManagerProtocol {
     static let shared = FavouriteListManager()
     var favouritedNewsArray: [String] = []
-    var favedNews: [(description: String, author: String, link: String, image: UIImage)] = []
+ 
+    
     
     let defaults = UserDefaults.standard
     let favouritedNewsKey = "favouritedNewsKey"
@@ -24,13 +25,7 @@ class FavouriteListManager: FavouriteListManagerProtocol {
             favouritedNewsArray = savedFavourites
         }
     }
-    
-    func addNew(_ new: (description: String, author: String, link: String, image: UIImage)) {
-        favedNews.append(new)
-        print(favedNews)
-        favedNews.map({ print($0.description, $0.author, $0.link, $0.image) })
-    }
-    
+
     func addFavouriteNews(_ news: String) {
         favouritedNewsArray.append(news)
         saveFavouriteNews()

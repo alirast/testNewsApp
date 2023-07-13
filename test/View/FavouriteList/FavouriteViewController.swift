@@ -10,18 +10,18 @@ import UIKit
 class FavouriteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var favouriteTableView = UITableView()
-    private var articles = [Article]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
            
         view.backgroundColor = .white
         
-           
         view.addSubview(favouriteTableView)
         favouriteTableView.register(UITableViewCell.self, forCellReuseIdentifier: "favCell")
         favouriteTableView.delegate = self
         favouriteTableView.dataSource = self
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,15 +45,18 @@ class FavouriteViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+
+        let selected = FavouriteListManager.shared.favouritedNewsArray[indexPath.row]
+        print(selected)
+        
         favouriteTableView.deselectRow(at: indexPath, animated: true)
         print("celltapped")
-        //NOT FIRST!!! it should be what we chose
-        let description = FavouriteListManager.shared.favedNews.first?.description
-        print(description)
+
         let detailVC = DetailViewController()
-        detailVC.detailDescriptionLabel.text = description
+        detailVC.detailDescriptionLabel.text = selected
+
         navigationController?.pushViewController(detailVC, animated: true)
-        tableView.deselectRow(at: indexPath, animated: true)
     }
 
 }
