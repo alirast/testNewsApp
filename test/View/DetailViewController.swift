@@ -85,21 +85,23 @@ class DetailViewController: UIViewController {
             let isFaved = FavouriteListManager.shared.favouritedNewsArray.contains(description)
             if isFaved {
                 FavouriteListManager.shared.removeNews(description)
+                showAlert("Удалено из избранного")
                 print("removed")
             } else {
                 FavouriteListManager.shared.addFavouriteNews(description)
+                showAlert("Добавлено в избранное")
                 print("added")
             }
-            /*FavouriteListManager.shared.addFavouriteNews(description)
-            print("favourited \(description)")*/
         }
-        
-        /*let alert = UIAlertController(title: "Добавлено в избранное", message: nil, preferredStyle: .alert)
+    }
+    
+    
+    private func showAlert(_ title: String) {
+        let alert = UIAlertController(title: "\(title)", message: nil, preferredStyle: .alert)
         present(alert, animated: true)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
             alert.dismiss(animated: true)
-        }*/
-        
+        }
     }
 }
 
