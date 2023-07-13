@@ -9,14 +9,14 @@ import UIKit
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    private var viewModels = [ListTableViewCellViewModel]()
+    private var articles = [Article]()
+    
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(ListTableViewCell.self, forCellReuseIdentifier: ListTableViewCell.identifier)
         return tableView
     }()
-    
-    private var viewModels = [ListTableViewCellViewModel]()
-    private var articles = [Article]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +24,13 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
+
         
-        APICaller.shared.getTopStories { [weak self] result in
+        NewsNetworkManager.shared.getTopStories { [weak self] result in
             switch result {
             case .success(let articles):
                 self?.articles = articles
-                self?.viewModels = articles.compactMap({ ListTableViewCellViewModel(author: $0.author ?? "here should be author", title: $0.title, description: $0.description ?? "nothing here", imageURL: URL(string: $0.urlToImage ?? "")) })
+                self?.viewModels = articles.compactMap({ ListTableViewCellViewModel(author: $0.author ?? "here should be author", title: $0.title, date: $0.publishedAt, imageURL: URL(string: $0.urlToImage ?? "")) })
                 
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
@@ -39,20 +40,6 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
         
-        /*tableView.delegate = self
-        tableView.dataSource = self
-        
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
-        
-        view.addSubview(tableView)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true*/
-        
-       
-        
     }
     
     override func viewDidLayoutSubviews() {
@@ -60,9 +47,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.frame = view.bounds
     }
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return data.count
         return viewModels.count
     }
     
@@ -75,19 +60,27 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let article = articles[indexPath.row]
         let detailVC = DetailViewController()
-        //detailVC.newsTitle = data[indexPath.row]
-        detailVC.newsTitle = article.title
-        detailVC.newsAuthor = article.author
-        detailVC.newsDescription = article.description ?? ""
-        detailVC.url = article.url
-        //detailVC.newsImage = URL(string: article.urlToImage ?? "") 
+
+        detailVC.detailAuthorLabel.text = article.author 
+        detailVC.detailDescriptionLabel.text = article.description
+        detailVC.detailLinkLabel.text = "Link: " + (article.url ?? "There's no link for the article.")
+        
+        if let imageURL = URL(string: article.urlToImage ?? "") {
+            DispatchQueue.global().async { [weak self] in
+                if let imageData = try? Data(contentsOf: imageURL), let image = UIImage(data: imageData) {
+                    DispatchQueue.main.async {
+                        detailVC.detailNewsImageView.image = image
+                    }
+                }
+            }
+        }
+
         navigationController?.pushViewController(detailVC, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 160
+        return 150
     }
-    
     
 }

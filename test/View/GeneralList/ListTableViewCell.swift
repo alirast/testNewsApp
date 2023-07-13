@@ -7,21 +7,6 @@
 
 import UIKit
 
-class ListTableViewCellViewModel {
-    let author: String
-    let title: String
-    let description: String
-    let imageURL: URL?
-    var imageData: Data? = nil
-    
-    init(author: String, title: String, description: String, imageURL: URL?) {
-        self.author = author
-        self.title = title
-        self.description = description
-        self.imageURL = imageURL
-    }
-}
-
 class ListTableViewCell: UITableViewCell {
 
     static let identifier = "ListTableViewCell"
@@ -36,14 +21,14 @@ class ListTableViewCell: UITableViewCell {
     private let listTitleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.font = .systemFont(ofSize: 20, weight: .regular)
+        label.font = .systemFont(ofSize: 15, weight: .regular)
         return label
     }()
     
-    private let subtitleLabel: UILabel = {
+    private let dateLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.font = .systemFont(ofSize: 15, weight: .regular)
+        label.font = .systemFont(ofSize: 10, weight: .regular)
         return label
     }()
     
@@ -62,12 +47,12 @@ class ListTableViewCell: UITableViewCell {
         contentView.addSubview(listAuthorLabel)
         contentView.addSubview(imageViewList)
         contentView.addSubview(listTitleLabel)
-        contentView.addSubview(subtitleLabel)
+        contentView.addSubview(dateLabel)
         
         listAuthorLabel.translatesAutoresizingMaskIntoConstraints = false
         imageViewList.translatesAutoresizingMaskIntoConstraints = false
         listTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        dateLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             listAuthorLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
@@ -78,10 +63,10 @@ class ListTableViewCell: UITableViewCell {
             listTitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             listTitleLabel.trailingAnchor.constraint(equalTo: imageViewList.leadingAnchor, constant: -10),
                        
-            subtitleLabel.topAnchor.constraint(equalTo: listTitleLabel.bottomAnchor, constant: 10),
-            subtitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            subtitleLabel.trailingAnchor.constraint(equalTo: imageViewList.leadingAnchor, constant: -10),
-            subtitleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            dateLabel.topAnchor.constraint(equalTo: listTitleLabel.bottomAnchor, constant: 10),
+            dateLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            dateLabel.trailingAnchor.constraint(equalTo: imageViewList.leadingAnchor, constant: -10),
+            dateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
                        
             imageViewList.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
             imageViewList.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
@@ -100,14 +85,14 @@ class ListTableViewCell: UITableViewCell {
         super.prepareForReuse()
         listAuthorLabel.text = nil
         listTitleLabel.text = nil
-        subtitleLabel.text = nil
+        dateLabel.text = nil
         imageViewList.image = nil
     }
     
     func configure(with viewModel: ListTableViewCellViewModel) {
         listAuthorLabel.text = viewModel.author
         listTitleLabel.text = viewModel.title
-        subtitleLabel.text = viewModel.description
+        dateLabel.text = viewModel.date
         
         //img
         if let data = viewModel.imageData {
