@@ -22,7 +22,6 @@ class FavouriteListManager: FavouriteListManagerProtocol {
         if let savedFavourites = defaults.object(forKey: favouritedNewsKey) as? [String] {
             favouritedNewsArray = savedFavourites
         }
-           
     }
     
     func addFavouriteNews(_ news: String) {

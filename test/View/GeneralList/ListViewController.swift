@@ -63,7 +63,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         detailVC.detailAuthorLabel.text = article.author 
         detailVC.detailDescriptionLabel.text = article.description
-        detailVC.detailLinkLabel.text = "Link: " + (article.url ?? "There's no link for the article.")
+        detailVC.detailLinkLabel.text = article.url 
         
         if let imageURL = URL(string: article.urlToImage ?? "") {
             DispatchQueue.global().async { [weak self] in

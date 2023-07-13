@@ -81,7 +81,7 @@ class DetailViewController: UIViewController {
     }
     
     @objc func addToFavourite() {
-        if let description = detailDescriptionLabel.text {
+        if let description = detailDescriptionLabel.text, let author = detailAuthorLabel.text, let link = detailLinkLabel.text, let image = detailNewsImageView.image {
             let isFaved = FavouriteListManager.shared.favouritedNewsArray.contains(description)
             if isFaved {
                 FavouriteListManager.shared.removeNews(description)
