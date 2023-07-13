@@ -88,6 +88,8 @@ class DetailViewController: UIViewController {
                 showAlert("Удалено из избранного")
                 print("removed")
             } else {
+                //FavouriteListManager.shared.addNew((description, author, link, image))
+                FavouriteListManager.shared.addNew((description, author, link, image))
                 FavouriteListManager.shared.addFavouriteNews(description)
                 showAlert("Добавлено в избранное")
                 print("added")

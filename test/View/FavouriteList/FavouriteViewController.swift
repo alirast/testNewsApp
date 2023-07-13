@@ -16,6 +16,7 @@ class FavouriteViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
            
         view.backgroundColor = .white
+        
            
         view.addSubview(favouriteTableView)
         favouriteTableView.register(UITableViewCell.self, forCellReuseIdentifier: "favCell")
@@ -46,8 +47,11 @@ class FavouriteViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         favouriteTableView.deselectRow(at: indexPath, animated: true)
         print("celltapped")
+        //NOT FIRST!!! it should be what we chose
+        let description = FavouriteListManager.shared.favedNews.first?.description
+        print(description)
         let detailVC = DetailViewController()
-
+        detailVC.detailDescriptionLabel.text = description
         navigationController?.pushViewController(detailVC, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
