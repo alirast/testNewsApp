@@ -86,18 +86,22 @@ class DetailViewController: UIViewController {
             let isFavedDescription = FavouriteListManager.shared.favouritedNewsArray.contains(description)
             let isFavedLink = FavouriteListManager.shared.favLink.contains(link)
             let isFavedAuthor = FavouriteListManager.shared.favAuthor.contains(author)
+            let isFavedImage = FavouriteListManager.shared.favImage.contains(image)
             print(isFavedLink)
             print(isFavedDescription)
-            if isFavedDescription && isFavedLink && isFavedAuthor {
+            
+            if isFavedDescription && isFavedLink && isFavedAuthor && isFavedImage {
                 FavouriteListManager.shared.removeNews(description)
                 FavouriteListManager.shared.removeLink(link)
                 FavouriteListManager.shared.removeAuthor(author)
+                FavouriteListManager.shared.removeImage(image)
                 showAlert("Удалено из избранного")
                 print("removed")
             } else {
                 FavouriteListManager.shared.addFavAuthor(author)
                 FavouriteListManager.shared.addFavLink(link)
                 FavouriteListManager.shared.addFavouriteNews(description)
+                FavouriteListManager.shared.addFavImage(image)
                 showAlert("Добавлено в избранное")
                 print("added")
             }

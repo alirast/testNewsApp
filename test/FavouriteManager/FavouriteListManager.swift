@@ -17,7 +17,7 @@ class FavouriteListManager: FavouriteListManagerProtocol {
     
     var favLink: [String] = []
     var favAuthor: [String] = []
-    
+    var favImage: [UIImage] = []
     
     
     let defaults = UserDefaults.standard
@@ -25,6 +25,7 @@ class FavouriteListManager: FavouriteListManagerProtocol {
     
     let favLinkKey = "favLinkKey"
     let favAuthorKey = "favAuthorKey"
+    let favImageKey = "favImageKey"
     
     init() {
         if let savedFavourites = defaults.object(forKey: favouritedNewsKey) as? [String] {
@@ -37,6 +38,10 @@ class FavouriteListManager: FavouriteListManagerProtocol {
         if let savedAuthor = defaults.object(forKey: favAuthorKey) as? [String] {
             favAuthor = savedAuthor
         }
+        
+        if let savedImage = defaults.object(forKey: favImageKey) as? [Data] {
+            favImage = savedImage.compactMap({ UIImage(data: $0) })
+        }
     }
     
     func addFavLink(_ link: String) {
@@ -47,6 +52,11 @@ class FavouriteListManager: FavouriteListManagerProtocol {
     func addFavAuthor(_ author: String) {
         favAuthor.append(author)
         saveAuthor()
+    }
+    
+    func addFavImage(_ image: UIImage) {
+        favImage.append(image)
+        saveImage()
     }
 
     func addFavouriteNews(_ news: String) {
@@ -68,8 +78,20 @@ class FavouriteListManager: FavouriteListManagerProtocol {
         }
     }
     
+    func removeImage(_ image: UIImage) {
+        if let index = favImage.firstIndex(of: image) {
+            favImage.remove(at: index)
+            saveImage()
+        }
+    }
+    
     private func saveLink() {
         defaults.set(favLink, forKey: favLinkKey)
+    }
+    
+    private func saveImage() {
+        let imageData = favImage.compactMap({ $0.jpegData(compressionQuality: 1.0) })
+        defaults.set(imageData, forKey: favImageKey)
     }
     
     func removeAuthor(_ author: String) {

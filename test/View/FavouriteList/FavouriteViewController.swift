@@ -50,9 +50,12 @@ class FavouriteViewController: UIViewController, UITableViewDelegate, UITableVie
         let selectedDescription = FavouriteListManager.shared.favouritedNewsArray[indexPath.row]
         let selectedLink = FavouriteListManager.shared.favLink[indexPath.row]
         let selectedAuthor = FavouriteListManager.shared.favAuthor[indexPath.row]
+        
+        let selectedImage = FavouriteListManager.shared.favImage[indexPath.row]
         print(selectedDescription)
         print(selectedLink)
         print(selectedAuthor)
+        print(selectedImage)
         
         favouriteTableView.deselectRow(at: indexPath, animated: true)
         print("celltapped")
@@ -61,6 +64,9 @@ class FavouriteViewController: UIViewController, UITableViewDelegate, UITableVie
         detailVC.detailDescriptionLabel.text = selectedDescription
         detailVC.detailLinkLabel.text = selectedLink
         detailVC.detailAuthorLabel.text = selectedAuthor
+        detailVC.detailNewsImageView.image = selectedImage
+
+        
 
         navigationController?.pushViewController(detailVC, animated: true)
     }
