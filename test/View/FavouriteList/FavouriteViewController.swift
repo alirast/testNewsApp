@@ -40,7 +40,7 @@ class FavouriteViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = favouriteTableView.dequeueReusableCell(withIdentifier: "favCell", for: indexPath)
-        cell.textLabel?.text = FavouriteListManager.shared.favLink[indexPath.row]
+        cell.textLabel?.text = FavouriteListManager.shared.favouritedNewsArray[indexPath.row]
         return cell
     }
     
