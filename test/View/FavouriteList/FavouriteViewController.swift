@@ -35,26 +35,32 @@ class FavouriteViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return FavouriteListManager.shared.favouritedNewsArray.count
+        return FavouriteListManager.shared.favLink.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = favouriteTableView.dequeueReusableCell(withIdentifier: "favCell", for: indexPath)
-        cell.textLabel?.text = FavouriteListManager.shared.favouritedNewsArray[indexPath.row]
+        cell.textLabel?.text = FavouriteListManager.shared.favLink[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
 
-        let selected = FavouriteListManager.shared.favouritedNewsArray[indexPath.row]
-        print(selected)
+        let selectedDescription = FavouriteListManager.shared.favouritedNewsArray[indexPath.row]
+        let selectedLink = FavouriteListManager.shared.favLink[indexPath.row]
+        let selectedAuthor = FavouriteListManager.shared.favAuthor[indexPath.row]
+        print(selectedDescription)
+        print(selectedLink)
+        print(selectedAuthor)
         
         favouriteTableView.deselectRow(at: indexPath, animated: true)
         print("celltapped")
 
         let detailVC = DetailViewController()
-        detailVC.detailDescriptionLabel.text = selected
+        detailVC.detailDescriptionLabel.text = selectedDescription
+        detailVC.detailLinkLabel.text = selectedLink
+        detailVC.detailAuthorLabel.text = selectedAuthor
 
         navigationController?.pushViewController(detailVC, animated: true)
     }
