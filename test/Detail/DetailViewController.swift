@@ -112,33 +112,24 @@ class DetailViewController: UIViewController {
     @objc func addToFavourite() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star.fill"), style: .plain, target: self, action: #selector(addToFavourite))
         
-        if let description = detailDescriptionLabel.text, let author = detailAuthorLabel.text, let link = detailLinkLabel.text, let image = detailNewsImageView.image {
-            
-            let isFavedDescription = StorageManager.shared.favouritedNewsArray.contains(description)
-            let isFavedLink = StorageManager.shared.favouritedLinksArray.contains(link)
-            let isFavedAuthor = StorageManager.shared.favouritedAuthorsArray.contains(author)
-            let isFavedImage = StorageManager.shared.favouritedImagesArray.contains(image)
-            print(isFavedLink)
-            print(isFavedDescription)
-            
-            if isFavedDescription && isFavedLink && isFavedAuthor && isFavedImage {
-                StorageManager.shared.removeNews(description)
-                StorageManager.shared.removeLink(link)
-                StorageManager.shared.removeAuthor(author)
-                StorageManager.shared.removeImage(image)
-                showAlert("Удалено из избранного")
-                print("removed")
-                navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(addToFavourite))
-            } else {
-                StorageManager.shared.addFavouriteAuthor(author)
-                StorageManager.shared.addFavouriteLink(link)
-                StorageManager.shared.addFavouriteNews(description)
-                StorageManager.shared.addFavouriteImage(image)
-                showAlert("Добавлено в избранное")
-                print("added")
-                navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star.fill"), style: .plain, target: self, action: #selector(addToFavourite))
-            }
+        if isFaved() {
+            StorageManager.shared.removeNews(detailDescriptionLabel.text ?? "")
+            StorageManager.shared.removeLink(detailLinkLabel.text ?? "")
+            StorageManager.shared.removeAuthor(detailAuthorLabel.text ?? "")
+            StorageManager.shared.removeImage(detailNewsImageView.image ?? UIImage())
+            showAlert("Удалено из избранного")
+            print("removed")
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(addToFavourite))
+        } else {
+            StorageManager.shared.addFavouriteAuthor(detailAuthorLabel.text ?? "")
+            StorageManager.shared.addFavouriteLink(detailLinkLabel.text ?? "")
+            StorageManager.shared.addFavouriteNews(detailDescriptionLabel.text ?? "")
+            StorageManager.shared.addFavouriteImage(detailNewsImageView.image ?? UIImage())
+            showAlert("Добавлено в избранное")
+            print("added")
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star.fill"), style: .plain, target: self, action: #selector(addToFavourite))
         }
+        
     }
     
     
@@ -152,6 +143,14 @@ class DetailViewController: UIViewController {
     
     
     private func updateStarBarButtonItem() {
+        if isFaved() {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star.fill"), style: .plain, target: self, action: #selector(addToFavourite))
+        } else {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(addToFavourite))
+        }
+    }
+    
+    private func isFaved() -> Bool {
         if let description = detailDescriptionLabel.text, let author = detailAuthorLabel.text, let link = detailLinkLabel.text, let image = detailNewsImageView.image {
             
             let isFavedDescription = StorageManager.shared.favouritedNewsArray.contains(description)
@@ -160,10 +159,12 @@ class DetailViewController: UIViewController {
             let isFavedImage = StorageManager.shared.favouritedImagesArray.contains(image)
             
             if isFavedDescription && isFavedLink && isFavedAuthor && isFavedImage {
-                navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star.fill"), style: .plain, target: self, action: #selector(addToFavourite))
+                return true
             } else {
-                navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(addToFavourite))
+                return false
             }
+        } else {
+            return false
         }
     }
 }
