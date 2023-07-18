@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GeneralListTableViewCell: UITableViewCell {
+final class GeneralListTableViewCell: UITableViewCell {
 
     static let identifier = "ListTableViewCell"
     

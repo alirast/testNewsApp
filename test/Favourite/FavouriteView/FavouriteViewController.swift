@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavouriteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+final class FavouriteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var favouriteTableView = UITableView()
     

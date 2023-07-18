@@ -7,8 +7,8 @@
 
 import Foundation
 
-final class NewsNetworkManager {
-    static let shared = NewsNetworkManager()
+final class NetworkManager {
+    static let shared = NetworkManager()
     
     struct TopHeadlines {
         static let topHeadlinesURL = URL(string: "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=a8c230c21d4f4cb49591379d27244469")

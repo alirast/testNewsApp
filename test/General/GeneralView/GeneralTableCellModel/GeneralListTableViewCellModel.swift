@@ -7,7 +7,7 @@
 
 import Foundation
 
-class GeneralListTableViewCellModel {
+final class GeneralListTableViewCellModel {
     let author: String
     let title: String
     let date: String

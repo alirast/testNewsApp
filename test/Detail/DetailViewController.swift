@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
     var detailNewsImageView = UIImageView()
     var detailAuthorLabel = UILabel()
     var detailDescriptionLabel = UILabel()
@@ -32,7 +32,7 @@ class DetailViewController: UIViewController {
         updateStarBarButtonItem()
     }
     
-    func setupDetailImage() {
+    private func setupDetailImage() {
         detailNewsImageView.translatesAutoresizingMaskIntoConstraints = false
         detailNewsImageView.backgroundColor = .black
         view.addSubview(detailNewsImageView)
@@ -47,7 +47,7 @@ class DetailViewController: UIViewController {
         
     }
     
-    func setupDetailAuthor() {
+    private func setupDetailAuthor() {
         detailAuthorLabel.translatesAutoresizingMaskIntoConstraints = false
         detailAuthorLabel.textColor = .black
         detailAuthorLabel.font.withSize(30)
@@ -59,7 +59,7 @@ class DetailViewController: UIViewController {
         ])
     }
     
-    func setupDetailDescription() {
+    private func setupDetailDescription() {
         detailDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         detailDescriptionLabel.textColor = .black
         detailDescriptionLabel.sizeToFit()
@@ -73,7 +73,7 @@ class DetailViewController: UIViewController {
         ])
     }
     
-    func setupDetailLink() {
+    private func setupDetailLink() {
         detailLinkLabel.translatesAutoresizingMaskIntoConstraints = false
         detailLinkLabel.numberOfLines = 0
         detailLinkLabel.sizeToFit()
@@ -89,7 +89,7 @@ class DetailViewController: UIViewController {
         detailLinkLabel.addGestureRecognizer(linkGesture)
     }
     
-    func setuplinkLabelFullVersion() {
+    private func setuplinkLabelFullVersion() {
         linkLabelFullVersion.translatesAutoresizingMaskIntoConstraints = false
         linkLabelFullVersion.text = "Full version of the article"
         linkLabelFullVersion.sizeToFit()

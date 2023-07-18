@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GeneralListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+final class GeneralListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     private var cellModels = [GeneralListTableViewCellModel]()
     var articles = [Article]()
@@ -26,7 +26,7 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.dataSource = self
 
         
-        NewsNetworkManager.shared.getTopStories { [weak self] result in
+        NetworkManager.shared.getTopStories { [weak self] result in
             switch result {
             case .success(let articles):
                 self?.articles = articles
