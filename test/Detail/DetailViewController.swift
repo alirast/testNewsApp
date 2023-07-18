@@ -112,7 +112,7 @@ final class DetailViewController: UIViewController {
     @objc func addToFavourite() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star.fill"), style: .plain, target: self, action: #selector(addToFavourite))
         
-        if isFaved() {
+        if isAddedToFavourite() {
             StorageManager.shared.removeNews(detailDescriptionLabel.text ?? "")
             StorageManager.shared.removeLink(detailLinkLabel.text ?? "")
             StorageManager.shared.removeAuthor(detailAuthorLabel.text ?? "")
@@ -143,14 +143,14 @@ final class DetailViewController: UIViewController {
     
     
     private func updateStarBarButtonItem() {
-        if isFaved() {
+        if isAddedToFavourite() {
             navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star.fill"), style: .plain, target: self, action: #selector(addToFavourite))
         } else {
             navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(addToFavourite))
         }
     }
     
-    private func isFaved() -> Bool {
+    private func isAddedToFavourite() -> Bool {
         if let description = detailDescriptionLabel.text, let author = detailAuthorLabel.text, let link = detailLinkLabel.text, let image = detailNewsImageView.image {
             
             let isFavedDescription = StorageManager.shared.favouritedNewsArray.contains(description)
