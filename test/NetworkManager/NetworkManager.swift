@@ -7,11 +7,7 @@
 
 import Foundation
 
-protocol NewsNetworkManagerProtocol {
-    func getTopStories(completion: @escaping (Result<[Article], Error>) -> Void)
-}
-
-final class NewsNetworkManager: NewsNetworkManagerProtocol {
+final class NewsNetworkManager {
     static let shared = NewsNetworkManager()
     
     struct TopHeadlines {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ListTableViewCell: UITableViewCell {
+class GeneralListTableViewCell: UITableViewCell {
 
     static let identifier = "ListTableViewCell"
     
@@ -89,7 +89,7 @@ class ListTableViewCell: UITableViewCell {
         imageViewList.image = nil
     }
     
-    func configure(with viewModel: ListTableViewCellModel) {
+    func configure(with viewModel: GeneralListTableViewCellModel) {
         listAuthorLabel.text = viewModel.author
         listTitleLabel.text = viewModel.title
         dateLabel.text = viewModel.date

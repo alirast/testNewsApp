@@ -11,7 +11,6 @@ class FavouriteViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var favouriteTableView = UITableView()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
            
@@ -35,38 +34,30 @@ class FavouriteViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return FavouriteListManager.shared.favLink.count
+        return StorageManager.shared.favouritedLinksArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = favouriteTableView.dequeueReusableCell(withIdentifier: "favCell", for: indexPath)
-        cell.textLabel?.text = FavouriteListManager.shared.favouritedNewsArray[indexPath.row]
+        cell.textLabel?.text = StorageManager.shared.favouritedNewsArray[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-
-        let selectedDescription = FavouriteListManager.shared.favouritedNewsArray[indexPath.row]
-        let selectedLink = FavouriteListManager.shared.favLink[indexPath.row]
-        let selectedAuthor = FavouriteListManager.shared.favAuthor[indexPath.row]
+        let selectedDescription = StorageManager.shared.favouritedNewsArray[indexPath.row]
+        let selectedLink = StorageManager.shared.favouritedLinksArray[indexPath.row]
+        let selectedAuthor = StorageManager.shared.favouritedAuthorsArray[indexPath.row]
         
-        let selectedImage = FavouriteListManager.shared.favImage[indexPath.row]
-        print(selectedDescription)
-        print(selectedLink)
-        print(selectedAuthor)
-        print(selectedImage)
+        let selectedImage = StorageManager.shared.favouritedImagesArray[indexPath.row]
         
         favouriteTableView.deselectRow(at: indexPath, animated: true)
-        print("celltapped")
 
         let detailVC = DetailViewController()
         detailVC.detailDescriptionLabel.text = selectedDescription
         detailVC.detailLinkLabel.text = selectedLink
         detailVC.detailAuthorLabel.text = selectedAuthor
         detailVC.detailNewsImageView.image = selectedImage
-
-        
 
         navigationController?.pushViewController(detailVC, animated: true)
     }

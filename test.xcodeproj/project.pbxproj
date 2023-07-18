@@ -13,13 +13,14 @@
 		4F3A4EF22A5EA7610047AADC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F3A4EF12A5EA7610047AADC /* Assets.xcassets */; };
 		4F3A4EF52A5EA7610047AADC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F3A4EF32A5EA7610047AADC /* LaunchScreen.storyboard */; };
 		4F3A4EFD2A5EAAD20047AADC /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3A4EFC2A5EAAD20047AADC /* MainTabBarController.swift */; };
-		4F3A4EFF2A5EAFA10047AADC /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3A4EFE2A5EAFA10047AADC /* ListViewController.swift */; };
+		4F3A4EFF2A5EAFA10047AADC /* GeneralListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3A4EFE2A5EAFA10047AADC /* GeneralListViewController.swift */; };
 		4F3A4F012A5EAFB50047AADC /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3A4F002A5EAFB50047AADC /* FavouriteViewController.swift */; };
 		4F3A4F072A5ED5B60047AADC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3A4F062A5ED5B60047AADC /* NetworkManager.swift */; };
-		4F3A4F092A5EDA700047AADC /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3A4F082A5EDA700047AADC /* ListTableViewCell.swift */; };
+		4F3A4F092A5EDA700047AADC /* GeneralListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3A4F082A5EDA700047AADC /* GeneralListTableViewCell.swift */; };
 		4F3A4F0B2A5F199D0047AADC /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3A4F0A2A5F199D0047AADC /* NewsModel.swift */; };
-		4F3A4F0D2A5F1B6E0047AADC /* ListTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3A4F0C2A5F1B6E0047AADC /* ListTableViewCellModel.swift */; };
-		4F3A4F332A6034F70047AADC /* FavouriteListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3A4F322A6034F70047AADC /* FavouriteListManager.swift */; };
+		4F3A4F0D2A5F1B6E0047AADC /* GeneralListTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3A4F0C2A5F1B6E0047AADC /* GeneralListTableViewCellModel.swift */; };
+		4F3A4F332A6034F70047AADC /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3A4F322A6034F70047AADC /* StorageManager.swift */; };
+		4FD82E242A66829800A37B38 /* WebViewDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD82E232A66829800A37B38 /* WebViewDetailController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,13 +32,14 @@
 		4F3A4EF42A5EA7610047AADC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F3A4EF62A5EA7610047AADC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F3A4EFC2A5EAAD20047AADC /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		4F3A4EFE2A5EAFA10047AADC /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		4F3A4EFE2A5EAFA10047AADC /* GeneralListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralListViewController.swift; sourceTree = "<group>"; };
 		4F3A4F002A5EAFB50047AADC /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
 		4F3A4F062A5ED5B60047AADC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		4F3A4F082A5EDA700047AADC /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		4F3A4F082A5EDA700047AADC /* GeneralListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralListTableViewCell.swift; sourceTree = "<group>"; };
 		4F3A4F0A2A5F199D0047AADC /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
-		4F3A4F0C2A5F1B6E0047AADC /* ListTableViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCellModel.swift; sourceTree = "<group>"; };
-		4F3A4F322A6034F70047AADC /* FavouriteListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteListManager.swift; sourceTree = "<group>"; };
+		4F3A4F0C2A5F1B6E0047AADC /* GeneralListTableViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralListTableViewCellModel.swift; sourceTree = "<group>"; };
+		4F3A4F322A6034F70047AADC /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		4FD82E232A66829800A37B38 /* WebViewDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewDetailController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,29 +72,18 @@
 		4F3A4EE72A5EA7600047AADC /* test */ = {
 			isa = PBXGroup;
 			children = (
-				4F3A4F342A60350E0047AADC /* FavouriteManager */,
-				4F3A4F112A5F1BFC0047AADC /* CellModel */,
+				4FD82E2B2A66A05500A37B38 /* Detail */,
+				4FD82E292A669FD600A37B38 /* Favourite */,
+				4FD82E262A668C2200A37B38 /* General */,
 				4F3A4F102A5F1BF50047AADC /* Model */,
+				4FD82E252A66877400A37B38 /* AppDelegates */,
+				4F3A4F342A60350E0047AADC /* StorageManager */,
 				4F3A4F0F2A5F1BE40047AADC /* NetworkManager */,
-				4F3A4F0E2A5F1BC50047AADC /* View */,
-				4F3A4EE82A5EA7600047AADC /* AppDelegate.swift */,
-				4F3A4EEA2A5EA7600047AADC /* SceneDelegate.swift */,
 				4F3A4EF12A5EA7610047AADC /* Assets.xcassets */,
 				4F3A4EF32A5EA7610047AADC /* LaunchScreen.storyboard */,
 				4F3A4EF62A5EA7610047AADC /* Info.plist */,
 			);
 			path = test;
-			sourceTree = "<group>";
-		};
-		4F3A4F0E2A5F1BC50047AADC /* View */ = {
-			isa = PBXGroup;
-			children = (
-				4F3A4F362A6041890047AADC /* FavouriteList */,
-				4F3A4F352A6041800047AADC /* GeneralList */,
-				4F3A4EFC2A5EAAD20047AADC /* MainTabBarController.swift */,
-				4F3A4EEC2A5EA7600047AADC /* DetailViewController.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		4F3A4F0F2A5F1BE40047AADC /* NetworkManager */ = {
@@ -111,37 +102,81 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		4F3A4F112A5F1BFC0047AADC /* CellModel */ = {
+		4F3A4F112A5F1BFC0047AADC /* GeneralTableCellModel */ = {
 			isa = PBXGroup;
 			children = (
-				4F3A4F0C2A5F1B6E0047AADC /* ListTableViewCellModel.swift */,
+				4F3A4F0C2A5F1B6E0047AADC /* GeneralListTableViewCellModel.swift */,
 			);
-			path = CellModel;
+			path = GeneralTableCellModel;
 			sourceTree = "<group>";
 		};
-		4F3A4F342A60350E0047AADC /* FavouriteManager */ = {
+		4F3A4F342A60350E0047AADC /* StorageManager */ = {
 			isa = PBXGroup;
 			children = (
-				4F3A4F322A6034F70047AADC /* FavouriteListManager.swift */,
+				4F3A4F322A6034F70047AADC /* StorageManager.swift */,
 			);
-			path = FavouriteManager;
+			path = StorageManager;
 			sourceTree = "<group>";
 		};
-		4F3A4F352A6041800047AADC /* GeneralList */ = {
+		4FD82E252A66877400A37B38 /* AppDelegates */ = {
 			isa = PBXGroup;
 			children = (
-				4F3A4F082A5EDA700047AADC /* ListTableViewCell.swift */,
-				4F3A4EFE2A5EAFA10047AADC /* ListViewController.swift */,
+				4F3A4EEA2A5EA7600047AADC /* SceneDelegate.swift */,
+				4F3A4EE82A5EA7600047AADC /* AppDelegate.swift */,
 			);
-			path = GeneralList;
+			path = AppDelegates;
 			sourceTree = "<group>";
 		};
-		4F3A4F362A6041890047AADC /* FavouriteList */ = {
+		4FD82E262A668C2200A37B38 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				4FD82E282A668C4000A37B38 /* MainTabBar */,
+				4FD82E272A668C3700A37B38 /* GeneralView */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		4FD82E272A668C3700A37B38 /* GeneralView */ = {
+			isa = PBXGroup;
+			children = (
+				4F3A4F082A5EDA700047AADC /* GeneralListTableViewCell.swift */,
+				4F3A4EFE2A5EAFA10047AADC /* GeneralListViewController.swift */,
+				4F3A4F112A5F1BFC0047AADC /* GeneralTableCellModel */,
+			);
+			path = GeneralView;
+			sourceTree = "<group>";
+		};
+		4FD82E282A668C4000A37B38 /* MainTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				4F3A4EFC2A5EAAD20047AADC /* MainTabBarController.swift */,
+			);
+			path = MainTabBar;
+			sourceTree = "<group>";
+		};
+		4FD82E292A669FD600A37B38 /* Favourite */ = {
+			isa = PBXGroup;
+			children = (
+				4FD82E2A2A66A03B00A37B38 /* FavouriteView */,
+			);
+			path = Favourite;
+			sourceTree = "<group>";
+		};
+		4FD82E2A2A66A03B00A37B38 /* FavouriteView */ = {
 			isa = PBXGroup;
 			children = (
 				4F3A4F002A5EAFB50047AADC /* FavouriteViewController.swift */,
 			);
-			path = FavouriteList;
+			path = FavouriteView;
+			sourceTree = "<group>";
+		};
+		4FD82E2B2A66A05500A37B38 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				4F3A4EEC2A5EA7600047AADC /* DetailViewController.swift */,
+				4FD82E232A66829800A37B38 /* WebViewDetailController.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,16 +250,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F3A4EED2A5EA7600047AADC /* DetailViewController.swift in Sources */,
-				4F3A4F092A5EDA700047AADC /* ListTableViewCell.swift in Sources */,
+				4F3A4F092A5EDA700047AADC /* GeneralListTableViewCell.swift in Sources */,
 				4F3A4EE92A5EA7600047AADC /* AppDelegate.swift in Sources */,
 				4F3A4F0B2A5F199D0047AADC /* NewsModel.swift in Sources */,
 				4F3A4EFD2A5EAAD20047AADC /* MainTabBarController.swift in Sources */,
 				4F3A4F072A5ED5B60047AADC /* NetworkManager.swift in Sources */,
-				4F3A4EFF2A5EAFA10047AADC /* ListViewController.swift in Sources */,
-				4F3A4F332A6034F70047AADC /* FavouriteListManager.swift in Sources */,
+				4F3A4EFF2A5EAFA10047AADC /* GeneralListViewController.swift in Sources */,
+				4FD82E242A66829800A37B38 /* WebViewDetailController.swift in Sources */,
+				4F3A4F332A6034F70047AADC /* StorageManager.swift in Sources */,
 				4F3A4F012A5EAFB50047AADC /* FavouriteViewController.swift in Sources */,
 				4F3A4EEB2A5EA7600047AADC /* SceneDelegate.swift in Sources */,
-				4F3A4F0D2A5F1B6E0047AADC /* ListTableViewCellModel.swift in Sources */,
+				4F3A4F0D2A5F1B6E0047AADC /* GeneralListTableViewCellModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,7 @@
 import UIKit
 
 class MainTabBarController: UITabBarController {
-    let listViewController = ListViewController()
+    let listViewController = GeneralListViewController()
     let favouriteViewController = FavouriteViewController()
     
     override func viewDidLoad() {
